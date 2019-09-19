@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">HeartRateManager</string>
+
+    <string name="error">Error</string>
+
+    <string name="no_bt_permission">Missing manifest permission</string>
+    <string name="no_btle">Bluetooth Low Energy not supported by the device</string>
+    <string name="bt_off">Bluetooth is off</string>
+    <string name="gps_off">Gps is off</string>
+    <string name="no_gps_permission">Location permission not granted</string>
+    <string name="unknow_bt_error">Unknown error</string>
+    <string name="bt_provider_error">Bluetooth provider error</string>
+    <string name="change_your_manifest">Edit the manifest to resolve the problem</string>
+    <string name="nothing_todo">Unable to fix this problem</string>
+    <string name="no_error">Nessun errore</string>
+    <string name="disconnected">Disconnected</string>
+    <string name="connected">Connected</string>
+</resources>
