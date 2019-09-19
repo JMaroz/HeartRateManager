@@ -1,4 +1,4 @@
-package com.marozzi.btle.heartrate
+package com.marozzi.btle.heartrate.app
 
 import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.marozzi.btle.heartrate.HeartRateDevicesManager
 import kotlinx.android.synthetic.main.fragment_hr_device.view.*
 
 class HRDeviceFragment : Fragment() {

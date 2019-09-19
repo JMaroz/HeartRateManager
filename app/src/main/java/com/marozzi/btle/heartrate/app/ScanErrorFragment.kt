@@ -1,4 +1,4 @@
-package com.marozzi.btle.heartrate
+package com.marozzi.btle.heartrate.app
 
 import android.Manifest
 import android.bluetooth.BluetoothAdapter
@@ -10,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.marozzi.btle.heartrate.HeartRateDevicesManager
+import com.marozzi.btle.heartrate.app.R
 import com.marozzi.btle.scanner.model.ScanError
 import kotlinx.android.synthetic.main.fragment_scan_error.view.*
 import kotlinx.android.synthetic.main.view_scan_error.view.*
@@ -18,7 +20,8 @@ class ScanErrorFragment : Fragment() {
 
     companion object {
 
-        fun getInstance(): ScanErrorFragment = ScanErrorFragment()
+        fun getInstance(): ScanErrorFragment =
+            ScanErrorFragment()
 
         private val permissions = arrayOf(
             Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION
@@ -82,7 +85,8 @@ class ScanErrorFragment : Fragment() {
                 }
                 ScanError.LOCATION_OFF -> startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS))
                 ScanError.NO_LOCATION_PERMISSION -> requestPermissions(
-                    permissions, REQUEST_CODE_PERMISSION_LOCATION
+                    permissions,
+                    REQUEST_CODE_PERMISSION_LOCATION
                 )
                 else -> Toast.makeText(context, R.string.error, Toast.LENGTH_SHORT).show()
             }

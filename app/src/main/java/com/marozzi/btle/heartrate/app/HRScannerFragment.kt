@@ -1,4 +1,4 @@
-package com.marozzi.btle.heartrate
+package com.marozzi.btle.heartrate.app
 
 import android.bluetooth.BluetoothDevice
 import android.os.Bundle
@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.marozzi.btle.heartrate.HeartRateDevicesManager
+import com.marozzi.btle.heartrate.app.R
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.adapters.FastItemAdapter
 import com.mikepenz.fastadapter.diff.FastAdapterDiffUtil
@@ -20,7 +22,8 @@ class HRScannerFragment : Fragment() {
 
     companion object {
 
-        fun getInstance(): HRScannerFragment = HRScannerFragment()
+        fun getInstance(): HRScannerFragment =
+            HRScannerFragment()
     }
 
     private val hrsFound = mutableSetOf<BluetoothDevice>()
@@ -37,7 +40,8 @@ class HRScannerFragment : Fragment() {
     private val adapter = FastItemAdapter<DeviceItem>()
     private val handler = Handler()
     private val runnable = Runnable {
-        FastAdapterDiffUtil[adapter.itemAdapter] = DeviceItem.getItems(hrsFound.toList())
+        FastAdapterDiffUtil[adapter.itemAdapter] =
+            DeviceItem.getItems(hrsFound.toList())
     }
 
     override fun onCreateView(

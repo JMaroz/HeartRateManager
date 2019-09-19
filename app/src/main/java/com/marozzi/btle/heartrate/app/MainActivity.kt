@@ -1,10 +1,12 @@
-package com.marozzi.btle.heartrate
+package com.marozzi.btle.heartrate.app
 
 import android.bluetooth.BluetoothDevice
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.marozzi.btle.heartrate.HeartRateDevicesManager
 
-class MainActivity : AppCompatActivity(), ScanErrorFragment.ScanErrorListener,
+class MainActivity : AppCompatActivity(),
+    ScanErrorFragment.ScanErrorListener,
     HRScannerFragment.HRScannerListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +16,10 @@ class MainActivity : AppCompatActivity(), ScanErrorFragment.ScanErrorListener,
         HeartRateDevicesManager.init(this)
         if (HeartRateDevicesManager.canScan().isNotEmpty()) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, ScanErrorFragment.getInstance()).commit()
+                .replace(
+                    R.id.container,
+                    ScanErrorFragment.getInstance()
+                ).commit()
         } else {
             showScanner()
         }
@@ -26,11 +31,19 @@ class MainActivity : AppCompatActivity(), ScanErrorFragment.ScanErrorListener,
 
     private fun showScanner() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, HRScannerFragment.getInstance()).commit()
+            .replace(
+                R.id.container,
+                HRScannerFragment.getInstance()
+            ).commit()
     }
 
     override fun onHRSelected(bluetoothDevice: BluetoothDevice) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, HRDeviceFragment.getInstance(bluetoothDevice)).commit()
+            .replace(
+                R.id.container,
+                HRDeviceFragment.getInstance(
+                    bluetoothDevice
+                )
+            ).commit()
     }
 }
